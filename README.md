@@ -1,4 +1,5 @@
 StockEdgeMK
+
 Team for this project:
 
 Elena Cikarska 221122
