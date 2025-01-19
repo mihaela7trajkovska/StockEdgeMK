@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - app_network
+
+  backend:
+    build: ./backend
+    ports:
+      - "9090:9090"
+    depends_on:
+      - lstm
+      - technical_analysis
+      - fundamental_analysis
+    networks:
+      - app_network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - app_network
+
+  lstm:
+    build: ./ml_services/lstm
+    ports:
+      - "8010:8010"
+    networks:
+      - app_network
+
+  technical_analysis:
+    build: ./ml_services/technicalAnalysis
+    ports:
+      - "5001:5001"
+    networks:
+      - app_network
+
+  fundamental_analysis:
+    build: ./ml_services/fundamentalAnalysis
+    ports:
+      - "8000:8000"
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
