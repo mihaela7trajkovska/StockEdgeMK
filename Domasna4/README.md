@@ -13,13 +13,13 @@ Model-View-Controller (MVC) Pattern е имплементиран во Spring Bo
 
 Апликацијата користи RESTful API, што овозможува комуникација помеѓу клиентот и серверот преку HTTP барања. Контролерите ги користат сервисните класи за имплементација на бизнис логиката, додека DTO (Data Transfer Objects) се користат за пренос на податоци. Податоците се разменуваат во JSON формат.
 
-Структура на микросервисите
-Микросервис Технологија Порта
-Backend Service Spring Boot  9090
-Frontend Service  React.js  3000
-LSTM ML Service Python (Flask)  8010
-Technical Analysis Service Python (Flask)  5001
-Fundamental Analysis Service Python (Flask) 8000
+Структура на микросервисите:
+ Микросервис Технологија Порта;
+ Backend Service Spring Boot  9090;
+ Frontend Service  React.js  3000;
+ LSTM ML Service Python (Flask)  8010;
+ Technical Analysis Service Python (Flask)  5001;
+ Fundamental Analysis Service Python (Flask) 8000;
 
 Функционалност на микросервисите
 Spring Boot бекендот комуницира со ML микросервисите преку REST API.
